@@ -1,30 +1,12 @@
-require('dotenv').config()
-const os = require('os')
+import * as task1 from "../PrintEnv.js";
+import * as task2 from "../OsWork.js";
+import * as task3 from "../FileWork/FileWorkAsync.js"
+import * as task3Sync from "../FileWork/FileWorkSync.js"
 
-function printEnv() {
-    console.log(`Name: ${process.env.NAME}\n` +
-        `Last name: ${process.env.LAST_NAME}\n` +
-        `Group number: ${process.env.GROUP_NUMBER}\n` + 
-        `Number in group: ${process.env.NUMBER_IN_GROUPE}`)
-}
+/*task1.printEnv()
 
-function printOSInfo() {
-    console.log(`System type: ${os.platform()}\n` +
-                `Free memory: ${os.freemem()} bytes\n` +
-                `Home directory: ${os.homedir()}\n` +
-                `Name: ${os.hostname()}\n` +
-                `Network intrface: ${os.networkInterfaces()}`)
-}
+task2.printOSInfo()
+console.log(`More than 4gb free space? ${task2.more4GB()}`);
+task2.accessUse();*/
 
-const more4GB = () => os.freemem()/1000000000 > 4.0;
-
-function accessUse() {
-    if (process.env.MODE == "admin") {
-        printOSInfo();
-    }
-}
-
-printEnv()
-printOSInfo()
-console.log(`More than 4gb free space? ${Boolean(more4GB)}`);
-accessUse();
+task3.printFilesPath("D:/WebProgramming/Lab_8/")
