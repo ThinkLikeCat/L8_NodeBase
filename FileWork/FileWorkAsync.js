@@ -1,29 +1,29 @@
 import fs from 'fs'
 import path from 'path'
 
-export async function writeInFile(filePath, data) {
-    await fs.appendFile(filePath, data, function(error) {
+export function writeInFile(filePath, data) {
+    fs.appendFile(filePath, data, function(error) {
             if (error) {
-                console.log(error);
+                throw error
             }
         }
     )
 }
 
-export async function readFromFile(filePath) {
-    await fs.readFile(filePath, function(error, data) {
+export function readFromFile(filePath) {
+    fs.readFile(filePath, function(error, data) {
             if (error) {
-                return console.log(error)
+                throw error
             }
             return data.ToString()    
         }
     )
 }
 
-export async function clearWriteInFile(filePath, data) {
-    await fs.writeFile(filePath, data, function(error) {
+export function clearWriteInFile(filePath, data) {
+    fs.writeFile(filePath, data, function(error) {
             if (error) {
-                console.log(error)
+                throw error
             }
         }
     )
@@ -31,22 +31,22 @@ export async function clearWriteInFile(filePath, data) {
 
 export const deleteFileContext = (filePath) => clearWriteInFile(filePath, "")
 
-export async function deleteNoiseInFileSync(filePath) {
-    let content = await readFromFile(filePath)
+export function deleteNoiseInFile(filePath) {
+    let content = readFromFile(filePath)
     content = content.toLowerCase()
     content = content.replace(/[^a-z]/g, '');
-    await clearWriteInFile(filePath, content)
+    clearWriteInFile(filePath, content)
 }
 
-export async function сopyToOtherFile(FilePath, copyFilePath) {
-    let content = await readFromFile(copyFilePath)
-    await clearWriteInFile(FilePath, content)
+export function сopyToOtherFile(FilePath, copyFilePath) {
+    let content = readFromFile(copyFilePath)
+    clearWriteInFile(FilePath, content)
 }
 
-export async function printFilesPath(pathDirect) {
-    await fs.readdir(pathDirect, function(error, files) {
+export function printFilesPath(pathDirect) {
+    fs.readdir(pathDirect, function(error, files) {
             if (error) {
-                return console.log(error)
+                throw error
             }
             files.forEach(file => {
                 let fullFilePath = path.join(pathDirect, file)

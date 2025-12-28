@@ -4,7 +4,7 @@ import path from 'path'
 export function writeInFileSync(filePath, data) {
     fs.appendFileSync(filePath, data, function(error) {
             if (error) {
-                console.log(error)
+                throw error
             }
         }
     )
@@ -13,7 +13,7 @@ export function writeInFileSync(filePath, data) {
 export function readFromFileSync(filePath) {
     fs.readFileSync(filePath, function(error, data) {
             if (error) {
-                return console.log(error)
+                throw error
             }
             return data.ToString()    
         }
@@ -23,7 +23,7 @@ export function readFromFileSync(filePath) {
 export function clearWriteInFileSync(filePath, data) {
     fs.writeFileSync(filePath, data, function(error) {
             if (error) {
-                console.log(error)
+                throw error
             }
         }
     )
@@ -46,7 +46,7 @@ export function сopyToOtherFileSync(FilePath, copyFilePath) {
 export function createDirectorySync(pathDirect) {
     fs.mkdir(pathDirect, function(error) {
             if (error) {
-                console.log(error)
+                throw error
             }
         } 
     )
@@ -55,7 +55,7 @@ export function createDirectorySync(pathDirect) {
 export function deleteDirectorySync(pathDirect){
     fs.readdirSync(pathDirect, function(error, files) {
             if (error) {
-                return console.log(error)
+                throw error
             }
             files.forEach(file => {
                 let fullFilePath = path.join(pathDirect, file)
@@ -69,7 +69,7 @@ export function deleteDirectorySync(pathDirect){
 export function printFilesPathSync(pathDirect) {
     fs.readdirSync(pathDirect, function(error, files) {
             if (error) {
-                return console.log(error)
+                throw error
             }
             files.forEach(file => {
                 let fullFilePath = path.join(pathDirect, file)

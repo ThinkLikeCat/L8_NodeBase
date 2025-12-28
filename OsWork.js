@@ -8,7 +8,7 @@ export function printOSInfo() {
                 `Network intrface: ${os.networkInterfaces()}`)
 }
 
-export const more4GB = () => Boolean(os.freemem()/1000000000 > 4.0);
+export const more4GB = () => Boolean(os.freemem()/1073741824 > 4.0);
 
 export function accessUse() {
     if (process.env.MODE == "admin") {
