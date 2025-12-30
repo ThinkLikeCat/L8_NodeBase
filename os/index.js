@@ -8,7 +8,9 @@ import * as task4 from "./Cryptography.js";*/
 // Задания выше были с "type": "modeule", так как я не дошел до импортирования модулей, то я выполнил такой странной реализацией
 // Далее все через "type": "commonjs"
 
-const strSor = require('../StringSorter.js');
+//const strSor = require('../Modules/StringSorter.js');
+//const daLoader = require('../Modules/DataLoader.js');
+const uses = require('../use.js');
 
 //task1.printEnv()
 
@@ -22,4 +24,8 @@ task2.accessUse();*/
 
 //console.log(task5.ShowBuildStatus());
 
-strSor.sort("dasd asdasd   ass");
+//console.log(strSor.sort(["D      mitry", "M ike", "  Antoniy"]));
+
+//daLoader.load();
+
+uses.solution();
