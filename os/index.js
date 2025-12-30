@@ -9,4 +9,5 @@ task2.printOSInfo()
 console.log(`More than 4gb free space? ${task2.more4GB()}`);
 task2.accessUse();*/
 
-task3.printFilesPath("D:/WebProgramming/Lab_8/")
+task3.printFilesPath("D:/WebProgramming/Lab_8/");
+//task3.deleteAll();
