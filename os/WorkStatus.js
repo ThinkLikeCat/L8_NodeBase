@@ -1,8 +1,6 @@
 import fs from 'fs';
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 export function ReadBuildState() {
     let readedJson;
     const file = fs.readFileSync('./package.json');
@@ -13,11 +11,14 @@ export function ReadBuildState() {
 export function ShowBuildStatus() {
     switch(ReadBuildState()) {
         case "build":
-            return process.env.production.MODE;
+            var copy = dotenv.config('.env.production');
+            return process.env.MODE;
         case "start":
-            return process.env.development.MODE;
+            dotenv.config('.env.development');
+            return process.env.MODE;
         case "deploy":
-            return process.env.domain.MODE;
+            dotenv.config('.env.domain');
+            return process.env.MODE;
         default:
             return "Error";
     }

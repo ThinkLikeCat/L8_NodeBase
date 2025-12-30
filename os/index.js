@@ -3,7 +3,12 @@ import * as task2 from "../OsWork.js";
 import * as task3 from "../FileWork/FileWorkAsync.js";
 import * as task3Sync from "../FileWork/FileWorkSync.js";
 import * as task4 from "./Cryptography.js";*/
-import * as task5 from "./WorkStatus.js";
+//import * as task5 from "./WorkStatus.js";
+
+// Задания выше были с "type": "modeule", так как я не дошел до импортирования модулей, то я выполнил такой странной реализацией
+// Далее все через "type": "commonjs"
+
+const strSor = require('../StringSorter.js');
 
 //task1.printEnv()
 
@@ -15,4 +20,6 @@ task2.accessUse();*/
 
 //await task4.DoCrypto();
 
-console.log(task5.ShowBuildStatus());
+//console.log(task5.ShowBuildStatus());
+
+strSor.sort("dasd asdasd   ass");
