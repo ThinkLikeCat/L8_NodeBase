@@ -14,11 +14,14 @@
   "author": "Zybailo M.D.",
   "type": "module",
   "main": "index.js",
+  "build" : "deploy",
   "scripts": {
-    "start": "node os/index.js",
+    "start": "nodemon os/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11"
   }
 }

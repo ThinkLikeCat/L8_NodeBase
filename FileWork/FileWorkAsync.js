@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
 export function writeInFile(filePath, data) {
     fs.appendFile(filePath, data, function(error) {
@@ -65,11 +65,11 @@ export function deleteDirectory(pathDirect) {
                 }
 
                 let fullFilePath = path.join(pathDirect, file);
-                fs.unlikSync(fullFilePath);
+                fs.unlik(fullFilePath);
             });
         }
     )
-    fs.rmdirSync(pathDirect);
+    fs.rmdir(pathDirect);
 }
 
 export function printFilesPath(pathDirect) {
